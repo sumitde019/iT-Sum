@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import { connectDB } from './config/db.js'
 import foodRouter from './routes/foodRoute.js'
+import mongoose from "mongoose";
 
 
 
@@ -28,3 +29,6 @@ app.get("/",(req, res)=>{
 app.listen(port,()=>{
     console.log(`Server started on http://localhost:${port}`)
 })
+
+
+//mongodb+srv://Mitsu:de24sumit@cluster0.l56vm.mongodb.net/?    

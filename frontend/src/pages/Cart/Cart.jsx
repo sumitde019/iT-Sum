@@ -25,7 +25,7 @@ const Cart = () => {
         {food_list.map((item,index)=>{
           if(cartItems[item._id]>0){
             return(
-              <div>
+              <div> 
                 <div className="cart-items-title cart-items-item">
                   <img src={url+"/images/"+item.image} alt="" />
                   <p>{item.name}</p>
@@ -51,12 +51,12 @@ const Cart = () => {
             <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>Rs{getTotalCartAmount()===0?0:15}</p>
+              <p>Rs{getTotalCartAmount()===0?0:Math.round(getTotalCartAmount()*0.05)}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>Rs{getTotalCartAmount()===0?0:getTotalCartAmount()+15}</b>
+              <b>Rs{getTotalCartAmount()===0?0:Math.round(getTotalCartAmount()*1.05)}</b>
             </div>
           </div>
           <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>

@@ -19,24 +19,38 @@ const placeOrder = async (req,res) => {
         await newOrder.save();
         await userModel.findByIdAndUpdate(req.body.userId,{cartData:{}});
 
-        const line_items = req.body.items.map(()=>({
+        const line_items = req.body.items.map((item)=>({
             price_data:{
                 currency:"inr",
                 product_data:{
                     name:item.name
                 },
-                unit_amount:item.price*100*80
+                unit_amount:item.price*100
             },
             quantity:item.quantity
         }))
-
+        let totalFoodCost = req.body.items.reduce((total, item) => {
+            return total + (item.price * 100 * item.quantity); 
+        }, 0);
+        const deliveryPrice = Math.round(totalFoodCost * 0.05);
+        line_items.push({
+            price_data: {
+                currency: "inr",
+                product_data: {
+                    name: "Delivery Charges"
+                },
+                unit_amount: deliveryPrice
+            },
+            quantity: 1
+        });
+        
         line_items.push({
             price_data:{
                 currency:"inr",
                 product_data:{
-                    names:"Delivery Charges"
+                    name:"GST"
                 },
-                unit_amount:2*100*80
+                unit_amount:10*100
             },
             quantity:1
         })

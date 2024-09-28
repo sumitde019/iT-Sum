@@ -41,6 +41,7 @@ const PlaceOrder = () => {
       amount:getTotalCartAmount()+2,
     }
     let response = await axios.post(url+"/api/order/place",orderData,{headers:{token}});
+    // console.log(response.data)
     if(response.data.success){
       const {session_url} = response.data;
       window.location.replace(session_url);
@@ -81,12 +82,12 @@ const PlaceOrder = () => {
             <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>Rs{getTotalCartAmount()===0?0:15}</p>
+              <p>Rs{getTotalCartAmount()===0?0:Math.round(getTotalCartAmount()*0.05)}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>Rs{getTotalCartAmount()===0?0:getTotalCartAmount()+15}</b>
+              <b>Rs{getTotalCartAmount()===0?0:Math.round(getTotalCartAmount()*1.05)}</b>
             </div>
           </div>
           <button type='submit'>PROCEED TO PAYMENT</button>

@@ -22,14 +22,13 @@
 .order-item select{
     background-color: #ffe8e4;
     border: 1px solid tomato;
-    width: max(10vw,120px);
+    width: max(11vw,120px);
     padding: 10px;
     outline: none;
 }
-
-@media (max-width:10) {
+@media (max-width:1000px) {
     .order-item{
-        font-size:12px;
+        font-size: 12px;
         grid-template-columns: 0.5fr 2fr 1fr;
         padding: 15px 8px;
     }

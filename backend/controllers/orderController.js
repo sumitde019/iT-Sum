@@ -68,7 +68,7 @@ const placeOrder = async (req,res) => {
         console.log(error);
         res.json({success:false,message:"Error"})
     }
-}
+};
 
 const verifyOrder = async (req,res) => {
     const {orderId,success} = req.body;
@@ -85,7 +85,7 @@ const verifyOrder = async (req,res) => {
         console.log(error)
         res.json({success:false,message:"Error"})
     }
-}
+};
 
 // users order for frontend
 const userOrders = async (req,res) => {
@@ -96,7 +96,7 @@ const userOrders = async (req,res) => {
         console.log(error);
         res.json({success:false,message:"Error"})
     }
-}
+};
 
 // listing orders for admin panel
 const listOrders = async (req,res) => {
@@ -107,7 +107,7 @@ const listOrders = async (req,res) => {
         console.log(error);
         res.json({success:false,message:"Error"})
     }
-}
+};
 
 // api for updating order status
 const updateStatus = async (req,res) => {
@@ -118,6 +118,6 @@ const updateStatus = async (req,res) => {
         console.log(error);
         res.json({success:false,message:"Error"})
     }
-}
+};
 
 export {placeOrder, verifyOrder, userOrders, listOrders, updateStatus}

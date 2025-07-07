@@ -5,8 +5,8 @@
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
-    color: grey;
-    font-size: max(1vw, 12px);
+    color: gray;
+    font-size: max(1vw,12px);
 }
 .cart-items-item{
     margin: 10px 0px;
@@ -24,7 +24,7 @@
     cursor: pointer;
 }
 .cart-bottom{
-    margin: 80px;
+    margin-top: 80px;
     display: flex;
     justify-content: space-between;
     gap: max(12vw,20px);
@@ -86,5 +86,8 @@
     }
     .cart-promocode{
         justify-content: start;
+    }
+    .cart-items-item p{
+        padding-left: 10px;
     }
 }
